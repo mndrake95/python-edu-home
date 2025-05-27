@@ -65,15 +65,15 @@ if __name__ == "__main__":
     ### Цикл для работы приложения ###
     while True:
         print ("\n")
-        print ("Выберите желаемое действие")
+        print ("Choose an action:")
         print ("----------------------")
-        print ("1. Добавить задачу")
-        print ("2. Удалить задачу")
-        print ("3. Список задач")
-        print ("4. Изменить статус задачи")
-        print ("5. Выйти из программы")
+        print ("1. Add task")
+        print ("2. Delete task")
+        print ("3. List tasks")
+        print ("4. Change task status")
+        print ("5. Exit")
 
-        choice = input("Введите номер действия: ")
+        choice = input("Choose # of action: ")
 
         if (choice == "1"):
             my_task_manager.add_task()
@@ -86,6 +86,6 @@ if __name__ == "__main__":
         elif (choice == "5"):
             break
         else:
-            print ("Неверный ввод. Пожалуйста введите номер действия от 1 до 4.")
+            print ("Invalid input. Please enter # of action from 1 to 5.")
 
-    print ("Вы вышли из программы.")
+    print ("You exited.")
