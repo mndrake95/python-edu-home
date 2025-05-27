@@ -47,9 +47,20 @@ class TaskManager:
                 print(f"Task with number {task_to_delete} not found.")
         except ValueError:
             print("Invalid input. Please enter a valid task number.")
+    def task_status_change(self):
+        self.list_task()
+        try:
+            task_to_change = int(input("Enter the task number you want to change status: "))
+            index = task_to_change - 1
+            if index >= 0 and index < len(self._tasks_list):
+                new_status = input("Enter new status (Pending, In Progress, Completed): ")
+                self._tasks_list[index].set_status(new_status)
+            else:
+                print(f"Task with number {task_to_change} not found.")
+        except ValueError:
+            print("Invalid input. Please enter a valid task number.")
 
 if __name__ == "__main__":
-    my_task = Task()
     my_task_manager = TaskManager()
     ### Цикл для работы приложения ###
     while True:
@@ -59,7 +70,8 @@ if __name__ == "__main__":
         print ("1. Добавить задачу")
         print ("2. Удалить задачу")
         print ("3. Список задач")
-        print ("4. Выход")
+        print ("4. Изменить статус задачи")
+        print ("5. Выйти из программы")
 
         choice = input("Введите номер действия: ")
 
@@ -70,6 +82,8 @@ if __name__ == "__main__":
         elif (choice == "3"):
             my_task_manager.list_task()
         elif (choice == "4"):
+            my_task_manager.task_status_change()
+        elif (choice == "5"):
             break
         else:
             print ("Неверный ввод. Пожалуйста введите номер действия от 1 до 4.")
